@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
         body {
             padding: 0;
@@ -31,8 +32,8 @@
         }
 
         #score img {
-            width: 200px;
-            height: 100px;
+            width: 150px;
+            height: 75px;
         }
 
         #cards {
@@ -47,11 +48,30 @@
         }
 
         #cards img {
-            width: 150px;
+            width: 50px;
             height: auto;
             margin: 5px;
         }
     </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let cardSize = 50;
+
+        let cards = document.getElementsByClassName("card");
+        for (var i=0; i < cards.length; i++) {
+            cards[i].style.transform = "rotate(" + ((Math.random() * 10) - 5)  + "deg)";
+        }
+
+        let menu = document.getElementById("menu");
+        menu.addEventListener('click', function (event) {
+            cardSize += 10;
+            let cards = document.getElementsByClassName("card");
+            for (var i=0; i < cards.length; i++) {
+                cards[i].style.width = cardSize + "px";
+            }
+        });
+    });
+    </script>
 
 </head>
 <body>
